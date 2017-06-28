@@ -24,6 +24,8 @@
 .icon-arrow-up:before {  content: "\e90a";  }
 .icon-arrow-down:before {  content: "\e90b";  }
 .icon-triangle-up:before {  content: "\ea50";  }
+.icon-sphere:before {  content: "\e9c9";  }
+.icon-office:before {  content: "\e90c";  }
 
 
 

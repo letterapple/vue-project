@@ -1,0 +1,157 @@
+@import "../../../assets/less/index.less";
+
+.register-wrap {
+  .header {
+    height: 100px;
+    width: 100%;
+    border-bottom: 2px solid @borderColor;
+    box-shadow: 0 0 10px @borderColor;
+
+    position: relative;
+
+    .left {
+      a {
+        margin-left: 200px;
+        img {
+          width: 200px;
+        }
+      }
+      .logo-title {
+        position: absolute;
+        font-size: 26px;
+        line-height: 120px;
+        margin-left: 20px;
+      }
+    }
+    .right {
+      position: absolute;
+      right: 100px;
+      bottom: 20px;
+
+      color: @fontColor;
+      a {
+        color: @fontColor-2;
+      }
+    }
+  }
+  .body {
+    display: flex;
+    .register-form {
+      width: 404px;
+      margin-left: 400px;
+      .input-item {
+        position: relative;
+        margin: 30px 0;
+        label {
+          position: absolute;
+          width: 90px;
+          line-height: 44px;
+          padding-left: 10px;
+        }
+        input {
+          width: 300px;
+          height: 40px;
+          line-height: 40px;
+          padding-left: 110px;
+        }
+        .iconfont {
+          transform: rotate(180deg);
+          display: inline-block;
+          color: @fontColor-4;
+          vertical-align: top;
+        }
+        &.phone {
+          label {
+            border-right: 1px solid @fontColor-4;
+            cursor: pointer;
+            > span {
+              width: 67px;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              display: inline-block;
+
+              vertical-align: middle;
+              line-height: 1;
+
+            }
+
+          }
+        }
+
+      }
+      .verification-mode {
+        text-align: right;
+        margin: -15px 0;
+        cursor: pointer;
+        color: @fontColor-3;
+      }
+      input[type='submit'] {
+        width: 404px;
+        height: 40px;
+        margin-top: 30px;
+
+        cursor: pointer;
+
+        background: red;
+        color: @fontColor-1;
+        border: none;
+      }
+      .form-agreen {
+        a {
+          color: @fontColor-3;
+        }
+      }
+
+    }
+    .register-link {
+      border-left: 1px solid @borderColor;
+
+      margin: 30px 0 0 100px;
+      padding: 20px 100px;
+      .company {
+        .iconfont {
+          font-size: 40px;
+          color: #A0CD3E;
+        }
+        >span{
+          display: inline-block;
+          margin-left: 10px;
+          font-size: 16px;
+        }
+      }
+      .split{
+        width: 200px;
+        height: 1px;
+        background: @borderColor;
+        margin: 30px 0;
+      }
+      .customer{
+        .iconfont {
+          font-size: 40px;
+          color: #3388FF;
+        }
+        >span{
+          display: inline-block;
+          font-size: 16px;
+          margin-left: 10px;
+          line-height: 25px;
+        }
+      }
+    }
+  }
+  .footer{
+    text-align: center;
+    margin: 50px 300px;
+    border-top: 1px solid #ccc;
+    padding: 30px 0;
+    .links{
+      margin-bottom: 20px;
+      >a{
+        padding: 0 10px;
+      }
+
+    }
+  }
+}
+
