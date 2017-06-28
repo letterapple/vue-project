@@ -7,20 +7,21 @@
       <span class="split">|</span>
       <li>
         <span>我的京东</span>
-        <span class="icon arrow"></span>
+        <i class="iconfont icon-triangle-up"></i>
       </li>
       <span class="split">|</span>
       <li><a target="_blank" href="">京东会员</a></li>
       <span class="split">|</span>
       <li><a target="_blank" href="">企业采购</a></li>
+      <span class="split">|</span>
       <li>
         <span>客户服务</span>
-        <span class="icon arrow"></span>
+        <i class="iconfont icon-triangle-up"></i>
       </li>
       <span class="split">|</span>
       <li>
         <span>网站导航</span>
-        <span class="icon arrow"></span>
+        <i class="iconfont icon-triangle-up"></i>
       </li>
       <span class="split">|</span>
       <li>

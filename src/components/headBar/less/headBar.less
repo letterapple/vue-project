@@ -1,14 +1,25 @@
+@import "../../../assets/less/index.less";
+
 .headBar{
   background: rgba(0,0,0,0.1);
   height: 40px;
   line-height: 40px;
+  color: @fontColor;
   ul{
     margin-left: 500px;
     li{
       position: relative;
       cursor: pointer;
+      margin: 0 5px;
       a{
         text-decoration: none;
+        color: @fontColor;
+      }
+      .iconfont{
+        transform: rotate(180deg);
+        display: inline-block;
+        font-size: 20px;
+        margin-left: -5px
       }
     }
     .login{
