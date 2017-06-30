@@ -13,6 +13,7 @@ var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = process.env.NODE_ENV === 'testing'
   ? require('./webpack.prod.conf')
   : require('./webpack.dev.conf')
+var testData= require('../server/test-data-manage');
 
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
@@ -23,6 +24,8 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+//引入测试数据
+testData.testData(app);
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
