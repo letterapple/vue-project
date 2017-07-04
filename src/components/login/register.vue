@@ -9,7 +9,7 @@
     </div>
     <div class="body">
       <div class="register-form">
-        <form  method="get" >
+        <form method="get">
           <div class="input-item">
             <label>用户名</label>
             <input type="text" placeholder="您的账户名和登录名" name="username" v-model="username">
@@ -22,7 +22,7 @@
             <label>确认密码</label>
             <input type="text" placeholder="请再次输入密码" name="confirmPassword" v-model="confirmPassword">
           </div>
-          <div class="input-item"  v-show="isShow">
+          <div class="input-item" v-show="isShow">
             <label>邮箱验证</label>
             <input type="text" placeholder="建议使用常用邮箱" name="email" v-model="email">
           </div>
@@ -33,7 +33,7 @@
             <register-phone-extend v-show="isPhoneExtend" @changeCounty="changeCounty"></register-phone-extend>
           </div>
           <div class="form-agreen">
-            <input type="checkbox"> <span>阅读并同意 <a>《京东用户注册协议》</a> <a>《隐私政策》</a> </span>
+            <input type="checkbox" v-model="agreenChecked"> <span>阅读并同意 <a>《京东用户注册协议》</a> <a>《隐私政策》</a> </span>
           </div>
           <input type="submit" class="submit" value="立即注册" @click="validate"/>
         </form>
@@ -61,25 +61,27 @@
 </template>
 
 <script type="text/babel">
-  import registerPhoneExtend from './register-phone-extend.vue';
+  import registerPhoneExtend from './register-phone-extend.vue'
+  import dataProcess from './data-process'
   export default {
     props: {},
     data () {
       return {
         isShow: false,
         isPhoneExtend: false,
-        currCounty:"中国 0086",
-        username:"",
-        password:"",
-        confirmPassword:"",
-        email:"",
-        phone:"",
-        errorMsg:""
+        currCounty: '中国 0086',
+        username: '',
+        password: '',
+        confirmPassword: '',
+        email: '',
+        phone: '',
+        errorMsg: '',
+        agreenChecked: false
       }
     },
     computed: {
       verificationMode () {
-        return this.isShow ? "手机验证" : "邮箱验证";
+        return this.isShow ? '手机验证' : '邮箱验证'
       }
     },
     components: {
@@ -91,44 +93,69 @@
     watch: {},
     methods: {
       verificationModeClick () {
-          this.isShow = !this.isShow;
+        this.isShow = !this.isShow;
       },
       phoneClick () {
-          this.isPhoneExtend = !this.isPhoneExtend;
+        this.isPhoneExtend = !this.isPhoneExtend;
       },
-      changeCounty(data){
-          this.currCounty = data;
-        this.isPhoneExtend = false;
+      changeCounty (data) {
+        this.currCounty = data
+        this.isPhoneExtend = false
       },
-      validate(){
+      validate () {
         // 1 非空判断
         if (this.username === '' || this.password === '' || this.confirmPassword === '') {
 
           if (this.username === '') {
-            this.errorMsg = "用户名不能为空";
-            console.log(this.errorMsg);
-            return false;
+            this.errorMsg = '用户名不能为空'
+            console.log(this.errorMsg)
+            return false
           }
 
           if (this.password === '') {
-            this.errorMsg = "密码不能为空";
-            return false;
+            this.errorMsg = '密码不能为空'
+            return false
           }
 
           if (this.confirmPassword === '') {
-            this.errorMsg = "确认密码不能为空";
-            return false;
+            this.errorMsg = '确认密码不能为空'
+            return false
           }
           // 2 新密码与确认密码是否一致
           if (this.password !== this.confirmPassword) {
-            this.errorMsg = "两次输入密码不一致";
-            return false;
+            this.errorMsg = '两次输入密码不一致'
+            return false
           }
         }
-      }
+        // 3 邮箱验证
+        if (this.isShow && this.email === '') {
+          this.errorMsg = '邮箱不能为空'
+          return false
+        }
+        // 4 手机验证
+        if (!this.isShow && this.phone === '') {
+          this.errorMsg = '手机号码不能为空'
+          return false
+        }
+        // 5  协议验证
+        if (!this.agreenChecked) {
+          this.errorMsg = '请同意协议并勾选'
+        }
 
+        dataProcess.register({
+          username: this.username,
+          password: this.password,
+          email: this.email,
+          phone: this.phone
+        }).then(ret => {
+          if (ret.body.success) {
+            console.log(ret.body.data);
+            window.location.href = '/'
+          }
+        })
+      }
     }
-  };
+  }
 </script>
 
 <style lang="less" rel="stylesheet/less">
