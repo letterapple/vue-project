@@ -1,7 +1,10 @@
 <template>
   <div class="headBar">
     <ul class="head-bar-menu">
-      <li><a href="/#/login" class="login">登录</a><a href="/#/register" class="register">免费注册</a></li>
+      <li>
+        <a href="/#/login" class="login" :class='{ hasUser : localStorage.username}'>{{login}}</a>
+        <a href="/#/register" class="register">免费注册</a>
+      </li>
       <span class="split">|</span>
       <li><a target="_blank" href="">我的订单</a></li>
       <span class="split">|</span>
@@ -38,11 +41,16 @@
     data () {
       return {}
     },
-    computed: {},
-    components: {},
-    mounted () {
-
+    computed: {
+      localStorage () {
+        return localStorage
+      },
+      login () {
+        return  localStorage.username ? localStorage.username + '，请登录' : '登录'
+      }
     },
+    components: {},
+    mounted () {},
     watch: {},
     methods: {}
   }

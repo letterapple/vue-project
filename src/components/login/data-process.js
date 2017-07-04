@@ -7,7 +7,6 @@ import Vue from 'vue'
 
 export default {
   register (params) {
-    console.log(params)
     return Vue.http.get('/api/register', {params: params})
   }
 }

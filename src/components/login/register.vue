@@ -16,7 +16,7 @@
           </div>
           <div class="input-item">
             <label>设置密码</label>
-            <input type="text" placeholder="建议至少使用两种字符" name="password" v-model="password">
+            <input type="text" placeholder="建议至少使用两种字符" name="password" v-model="password" minlength="6" maxlength="18">
           </div>
           <div class="input-item">
             <label>确认密码</label>
@@ -76,7 +76,9 @@
         email: '',
         phone: '',
         errorMsg: '',
-        agreenChecked: false
+        agreenChecked: false,
+        phoneNo: new RegExp(/^1[3-8]\d{9}$/),                                                  //
+        emailNo: new RegExp(/^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/)
       }
     },
     computed: {
@@ -128,13 +130,13 @@
           }
         }
         // 3 邮箱验证
-        if (this.isShow && this.email === '') {
-          this.errorMsg = '邮箱不能为空'
+        if (this.isShow && this.email === '' || (this.email !== '' && !this.emailNo.test(this.email))) {
+          this.errorMsg = this.email === '' ? '邮箱不能为空' : '邮箱格式不正确'
           return false
         }
         // 4 手机验证
-        if (!this.isShow && this.phone === '') {
-          this.errorMsg = '手机号码不能为空'
+        if (!this.isShow && this.phone === '' || (this.phone !== '' && !this.phoneNo.test(this.phone))) {
+          this.errorMsg = this.phone === '' ? '手机号码不能为空' : '手机格式不正确'
           return false
         }
         // 5  协议验证
@@ -150,7 +152,11 @@
         }).then(ret => {
           if (ret.body.success) {
             console.log(ret.body.data);
-            window.location.href = '/'
+            localStorage.username = ret.body.data.username
+            // localStorage.password = ret.body.data.password
+            localStorage.email = ret.body.data.email
+            localStorage.phone = ret.body.data.phone
+            window.location.href = '/#/'
           }
         })
       }

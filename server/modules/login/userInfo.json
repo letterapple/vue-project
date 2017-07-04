@@ -1,8 +1,8 @@
 {
-  "userList": {
+  "userList": [{
     "username": "apple",
     "password": "apple",
     "phone": "18872289002",
     "email": "2293@qq.com"
-  }
+  }]
 }

@@ -7,9 +7,10 @@ var express = require('express')
 // 添加测试数据
 var appData = require('./testData/good.json')
 var goods = appData.goods
-var userData = require('./modules/login/userInfo.json');
+var userData = require('./modules/login/userInfo.json')
 var userInfo = userData.userList
 var apiRoutes = express.Router()
+var userDto = require('./modules/login/userInfo.dto')
 
 exports.testData = function (app) {
   apiRoutes.get('/goods', function (req, res) {   /* 定义接口并返回数据 */
@@ -19,13 +20,10 @@ exports.testData = function (app) {
   })
   apiRoutes.get('/register', function (req, res) {   /* 定义接口并返回数据 */
     let params = req.query
-    userInfo.username = params.username
-    userInfo.password = params.password
-    userInfo.email = params.email
-    userInfo.phone = params.phone
+    userInfo.push(userDto.translate(params))
     res.json({
       success: true,
-      data: userInfo
+      data: userDto.translate(params)
     })
   })
   app.use('/api', apiRoutes) // 定义接口在/api目录下，方便管理
