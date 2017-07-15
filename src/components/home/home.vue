@@ -2,12 +2,16 @@
   <div class="home">
     <side-bar></side-bar>
     <head-bar></head-bar>
+    <div class="content">
+      <carousel-panel></carousel-panel>
+    </div>
   </div>
 </template>
 
 <script>
   import sideBar from '../sideBar/sideBar.vue'
   import headBar from '../headBar/headBar.vue'
+  import carouselPanel from './carousel.vue'
   export default {
     name: 'home',
     data () {
@@ -15,7 +19,8 @@
     },
     components: {
       sideBar,
-      headBar
+      headBar,
+      carouselPanel
     }
   }
 </script>
