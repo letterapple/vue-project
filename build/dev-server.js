@@ -22,8 +22,10 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
 var proxyTable = config.dev.proxyTable
+var history = require('connect-history-api-fallback')
 
 var app = express()
+app.use(history());
 //引入测试数据
 testData.testData(app);
 var compiler = webpack(webpackConfig)

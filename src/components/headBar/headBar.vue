@@ -2,8 +2,8 @@
   <div class="headBar">
     <ul class="head-bar-menu">
       <li>
-        <a href="/#/login" class="login" :class='{ hasUser : localStorage.username}'>{{login}}</a>
-        <a href="/#/register" class="register">免费注册</a>
+        <a href="/login" class="login" :class='{ hasUser : localStorage.username}'>{{login}}</a>
+        <a href="/register" class="register">免费注册</a>
       </li>
       <span class="split">|</span>
       <li><a target="_blank" href="">我的订单</a></li>

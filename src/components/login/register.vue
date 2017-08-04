@@ -5,7 +5,7 @@
         <a href="/"><img src="../../assets/images/register-logo.jpg"></a>
         <span class="logo-title">欢迎注册</span>
       </div>
-      <div class="right">已有账号？<a href="/#/login">请登录</a></div>
+      <div class="right">已有账号？<a href="/login">请登录</a></div>
     </div>
     <div class="body">
       <div class="register-form">
@@ -16,11 +16,11 @@
           </div>
           <div class="input-item">
             <label>设置密码</label>
-            <input type="text" placeholder="建议至少使用两种字符" name="password" v-model="password" minlength="6" maxlength="18">
+            <input type="password" placeholder="建议至少使用两种字符" name="password" v-model="password" minlength="6" maxlength="18">
           </div>
           <div class="input-item">
             <label>确认密码</label>
-            <input type="text" placeholder="请再次输入密码" name="confirmPassword" v-model="confirmPassword">
+            <input type="password" placeholder="请再次输入密码" name="confirmPassword" v-model="confirmPassword">
           </div>
           <div class="input-item" v-show="isShow">
             <label>邮箱验证</label>
