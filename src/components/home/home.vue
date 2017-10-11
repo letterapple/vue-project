@@ -5,7 +5,6 @@
     <div class="content">
       <carousel-panel></carousel-panel>
     </div>
-    <div>新分支测试</div>
   </div>
 </template>
 
