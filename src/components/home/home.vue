@@ -1,26 +1,18 @@
 <template>
   <div class="home">
-    <side-bar></side-bar>
-    <head-bar></head-bar>
-    <div class="content">
-      <carousel-panel></carousel-panel>
-    </div>
+    <fullpage></fullpage>
   </div>
 </template>
 
 <script>
-  import sideBar from '../sideBar/sideBar.vue'
-  import headBar from '../headBar/headBar.vue'
-  import carouselPanel from './carousel.vue'
+  import fullpage from  '../common/fullpage/fullpage-manage.vue'
   export default {
     name: 'home',
     data () {
       return {}
     },
     components: {
-      sideBar,
-      headBar,
-      carouselPanel
+      fullpage
     }
   }
 </script>
