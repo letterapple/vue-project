@@ -11,6 +11,37 @@
       <li>
         <span>我的京东</span>
         <i class="iconfont icon-triangle-up"></i>
+        <div class="detail">
+          <div class="list">
+            <ul class="detail-column">
+              <span>待处理订单</span>
+              <span> 返修退换货</span>
+              <span>降价商品</span>
+            </ul>
+
+            <ul class="detail-column">
+              <span>消息</span>
+              <span> 我的问答</span>
+              <span>我的关注</span>
+            </ul>
+
+          </div>
+
+          <div class="spliter"></div>
+
+          <div class="list">
+            <ul class="detail-column">
+              <span>我的京豆</span>
+              <span>我的白条</span>
+            </ul>
+
+            <ul class="detail-column">
+              <span>我的优惠券</span>
+              <span>我的理财</span>
+            </ul>
+          </div>
+
+        </div>
       </li>
       <span class="split">|</span>
       <li><a target="_blank" href="">京东会员</a></li>

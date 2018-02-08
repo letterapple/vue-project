@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+.spin (@cycleTime: 2s) {
+    animation: spin @cycleTime infinite linear;
+}
+
+.fa-icon-spin (@cycleTime: 2s) {
+    .spin(@cycleTime);
+}

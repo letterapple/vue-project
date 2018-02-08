@@ -12,6 +12,17 @@ var userInfo = userData.userList
 var apiRoutes = express.Router()
 var userDto = require('./modules/login/userInfo.dto')
 
+// 导入WebSocket模块:
+const WebSocket = require('ws');
+
+// 引用Server类:
+const WebSocketServer = WebSocket.Server;
+
+// 实例化:
+const wss = new WebSocketServer({
+  port: 3000
+})
+
 exports.testData = function (app) {
   apiRoutes.get('/goods', function (req, res) {   /* 定义接口并返回数据 */
     res.json({

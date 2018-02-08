@@ -1,40 +1,78 @@
 @import "../../../assets/less/index.less";
 
-.headBar{
-  background: rgba(0,0,0,0.1);
-  height: 40px;
-  line-height: 40px;
+@headBar-height: 40px;
+
+.headBar {
+  background: rgba(0, 0, 0, 0.1);
+  height: @headBar-height;
+  line-height: @headBar-height;
   color: @fontColor;
-  ul{
+  ul {
     margin-left: 500px;
-    li{
+    li {
       position: relative;
       cursor: pointer;
       margin: 0 5px;
-      a{
+      padding: 0 10px;
+
+      border:1px solid transparent;
+      a {
         text-decoration: none;
         color: @fontColor;
       }
-      .iconfont{
+      .iconfont {
         transform: rotate(180deg);
         display: inline-block;
         font-size: 20px;
         margin-left: -5px
       }
+      .detail {
+        position: absolute;
+        top: @headBar-height;
+        left: 0;
+
+        width: 300px;
+
+        padding: 5px;
+
+        z-index: 2;
+
+        background: #ffffff;
+        border: 1px solid @borderColor;
+        box-shadow: 2px 2px 2px #cccccc;
+        .list {
+          .detail-column {
+            margin: 0;
+            padding: 0;
+
+            display: inline-block;
+          }
+        }
+        .spliter{
+          height: 1px;
+          background: #ddd;
+        }
+
+      }
+      &:hover {
+        background: #ffffff;
+        border: 1px solid @borderColor;
+        border-bottom-color: #ffffff;
+      }
     }
-    .login{
+    .login {
       margin-right: 8px;
-      &.hasUser{
+      &.hasUser {
         color: red;
       }
     }
-    .qrcode{
+    .qrcode {
       width: 80px;
       height: 80px;
       position: absolute;
       border: 1px solid #555555;
       padding: 2px;
-      img{
+      img {
         width: 100%;
       }
     }

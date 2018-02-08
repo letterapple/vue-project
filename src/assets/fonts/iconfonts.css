@@ -12,20 +12,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-all:before {  content: "\e900";  }
-.icon-app:before {  content: "\e901";  }
-.icon-password-1:before {  content: "\e902";  }
-.icon-password-2:before {  content: "\e903";  }
-.icon-password-3:before {  content: "\e904";  }
-.icon-delete-1:before {  content: "\e905";  }
-.icon-delete-2:before {  content: "\e906";  }
-.icon-delete-3:before {  content: "\e907";  }
-.icon-delete-4:before {  content: "\e909";  }
-.icon-arrow-up:before {  content: "\e90a";  }
-.icon-arrow-down:before {  content: "\e90b";  }
-.icon-triangle-up:before {  content: "\ea50";  }
-.icon-sphere:before {  content: "\e9c9";  }
-.icon-office:before {  content: "\e90c";  }
+.icon-spinner:before {  content: "\e001";  }
+.icon-spinner2:before {  content: "\e002";  }
+.icon-spinner3:before {  content: "\e003";  }
+.icon-spinner4:before {  content: "\e004";  }
+.icon-spinner5:before {  content: "\e005";  }
+.icon-spinner6:before {  content: "\e006";  }
+
 
 
 
