@@ -1,0 +1,128 @@
+@charset "utf-8";
+
+// css3 (目前 autoprefix 好像不支持 device-pixel-ratio ) 2015-12-10
+.bg-image(@width, @height, @img-x1, @img-x2) {
+    background-image: @img-x1;
+    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) {
+        background-image: @img-x2;
+        background-size: @width @height;
+    }
+}
+
+.user-select(@select) {
+    -webkit-user-select: @select;
+    -moz-user-select: @select;
+    -ms-user-select: @select;
+    //-o-user-select: @select;
+    user-select: @select;
+}
+
+@btnIcoWidth: 32px;
+@btnIcoHeight: 32px;
+
+// Drop shadows
+.box-shadow(@shadow) {
+    -webkit-box-shadow: @shadow;
+    -moz-box-shadow: @shadow;
+    box-shadow: @shadow;
+}
+
+.box-sizing(@boxmodel) {
+    -webkit-box-sizing: @boxmodel;
+    -moz-box-sizing: @boxmodel;
+    box-sizing: @boxmodel;
+}
+
+// Opacity
+.opacity(@opacity) {
+    opacity: @opacity / 100;
+    filter: ~"alpha(opacity=@{opacity})";
+}
+
+.flex(@flex:1) {
+    -webkit-flex: @flex; /* Safari 6.1 */
+    -ms-flex: @flex; /* IE 10 */
+    flex: @flex;
+}
+
+.displayFlex(@flow:row, @align:stretch, @justify:space-between) {
+    display: -webkit-box; /* 老版本语法: Safari,  iOS, Android browser, older WebKit browsers.  */
+    display: -moz-box; /* 老版本语法: Firefox (buggy) */
+    display: -ms-flexbox; /* 混合版本语法: IE 10 */
+    display: -webkit-flex; /* 新版本语法： Chrome 21+ */
+    display: flex; /* 新版本语法： Opera 12.1, Firefox 22+ */
+
+    -webkit-flex-flow: @flow;
+    -ms-flex-flow: @flow;
+    flex-flow: @flow;
+
+    -webkit-align-items: @align;
+    -ms-align-items: @align;
+    align-items: @align;
+
+    /*新版本语法*/
+    justify-content: @justify;
+    -ms-justify-content: @justify;
+    -webkit-justify-content: @justify;
+    /*老版本语法*/
+    -webkit-box-pack: @justify;
+    -moz-box-pack: @justify;
+    /*混合版本语法*/
+    -ms-flex-pack: @justify;
+}
+
+// Border Radius
+.border-radius(@radius) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+// Transformations
+.transform(@value){
+    -webkit-transform: @value;
+    -moz-transform: @value;
+    -ms-transform: @value;
+    -o-transform: @value;
+    transform: @value;
+}
+
+.scale(@ratio) {
+    -webkit-transform: scale(@ratio);
+    -moz-transform: scale(@ratio);
+    -ms-transform: scale(@ratio);
+    -o-transform: scale(@ratio);
+    transform: scale(@ratio);
+}
+
+// Transitions
+.transition(@transition) {
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -o-transition: @transition;
+    transition: @transition;
+}
+
+.inputFocus() {
+    border-color: @inputFocus_borderColor;
+    .box-shadow(~"inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(82, 168, 236, .6)");
+}
+
+.placeholder(@color: @placeholderText) {
+    &:-moz-placeholder {
+        color: @color;
+    }
+    &:-ms-input-placeholder {
+        color: @color;
+    }
+    &::-webkit-input-placeholder {
+        color: @color;
+    }
+}
+
+.text-overflow() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: normal;
+}
